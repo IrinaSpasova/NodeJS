@@ -1,0 +1,1 @@
+This is the result of writeFileSync method. We can also put here result of Hello, this is first text file. and Hello, this is second text file.This is the result of writeFileSync method. We can also put here result of Hello, this is first text file. and Hello, this is second text file.
