@@ -6,7 +6,7 @@ const {
   //need callback ( something, that run when we are done. like addEventListener):
   // Important- if we don't provide utf coding parameter it will print Buffer!!!
   
-  
+  console.log('start');
   // Impotant:  this is an example of callback hell:
   readFile('./content/first.txt', 'utf8', (err, result) => {
     if (err) {
