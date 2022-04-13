@@ -3,7 +3,7 @@ const {
     StatusCodes
 } = require('http-status-codes');
 const CustomError = require('../errors');
-
+const {createJWT} = require('../utils')
 
 const register = async (req, res) => {
     //res.send('register user');
@@ -30,8 +30,12 @@ const register = async (req, res) => {
         password,
         role
     });
+    const tokenUser = { name:user.name, userId:user._id,role:user.role};
+   const token = createJWT({payload:tokenUser});
+
     res.status(StatusCodes.CREATED).json({
-        user
+        user:tokenUser,
+        token
     });
 }
 
