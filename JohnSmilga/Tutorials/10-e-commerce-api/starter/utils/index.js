@@ -1,10 +1,12 @@
 const {
     createJWT,
-    isTokenValid
+    isTokenValid,
+    attachCookiesToResponse
 } = require('./jwt');
 
 
 module.exports = {
     createJWT,
-    isTokenValid
+    isTokenValid,
+    attachCookiesToResponse
 };

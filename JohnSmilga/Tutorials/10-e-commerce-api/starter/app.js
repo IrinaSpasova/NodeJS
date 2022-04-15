@@ -20,14 +20,14 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(morgan('tiny'));
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser(process.env.JWT_SECRET));
 
 //test:
 app.get('/api/v1',(req,res)=>{
-    console.log(req.cookies);
+    //console.log(req.cookies);
+    console.log(req.signedCookies);
     res.send('e-commerce api');
-
-    //browser will return this cookie every time that request is sended
+    //browser will return the cookie every time that request is sended
 });
 
 /*app.get('/',(req,res)=>{
