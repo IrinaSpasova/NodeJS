@@ -13,7 +13,7 @@ const {
 } = require('../controllers/userController');
 
 
-router.route('/').get(authenticateUser, authorizePermissions, getAllUsers); // IMPORTANT - we have to put authorizePermissions after authenticateUser, because we have to identify user firs to be able to check his role
+router.route('/').get(authenticateUser, authorizePermissions('admin','owner'), getAllUsers); // IMPORTANT - we have to put authorizePermissions after authenticateUser, because we have to identify user firs to be able to check his role
 
 router.route('/showMe').get(showCurrentUser);
 
