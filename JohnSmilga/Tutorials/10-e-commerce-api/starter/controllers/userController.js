@@ -11,11 +11,15 @@ const showCurrentUser = async(req,res)=>{
 }
 
 const updateUser = async(req,res)=>{
-    res.send('update user route');
+    //res.send('update user route');
+     //test:
+     res.send(req.body);
 }
 
 const updateUserPassword = async(req,res)=>{
-    res.send('update password route');
+    //res.send('update password route');
+    //test:
+    res.send(req.body);
 }
 
 
