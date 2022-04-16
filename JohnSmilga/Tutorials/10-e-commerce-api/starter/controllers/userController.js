@@ -3,6 +3,7 @@ const {StatusCodes} = require('http-status-codes');
 const CustomError = require('../errors');
 
 const getAllUsers = async(req,res)=>{
+    console.log(req.user);
     //res.send('get all users route');
     const users = await User.find({role:'user'}).select('-password'); // -password' removes password from res
     res.status(StatusCodes.OK).json({users});
