@@ -4,7 +4,8 @@ const {
 } = require('http-status-codes');
 const CustomError = require('../errors');
 const {
-    attachCookiesToResponse
+    attachCookiesToResponse,
+    createTokenUser
 } = require('../utils');
 const { is } = require('express/lib/request');
 
@@ -34,11 +35,8 @@ const register = async (req, res) => {
         role
     });
 
-    const tokenUser = {
-        name: user.name,
-        userId: user._id,
-        role: user.role
-    };
+    const tokenUser = createTokenUser(user);
+   
 
     attachCookiesToResponse({res,user:tokenUser});
 
@@ -65,11 +63,7 @@ const login = async (req, res) => {
         throw new CustomError.BadRequestError('Please provide email and password');
     }
 
-    const tokenUser = {
-        name: user.name,
-        userId: user._id,
-        role: user.role
-    };
+    const tokenUser = createTokenUser(user);
 
     attachCookiesToResponse({res,user:tokenUser});
 
