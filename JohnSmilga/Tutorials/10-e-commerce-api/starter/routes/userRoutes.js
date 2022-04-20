@@ -15,7 +15,7 @@ const {
 
 router.route('/').get(authenticateUser, authorizePermissions('admin','owner'), getAllUsers); // IMPORTANT - we have to put authorizePermissions after authenticateUser, because we have to identify user firs to be able to check his role
 
-router.route('/showMe').get(showCurrentUser);
+router.route('/showMe').get(authenticateUser, showCurrentUser);
 
 router.route('/updateUser').patch(updateUser);
 
